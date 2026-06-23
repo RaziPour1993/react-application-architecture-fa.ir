@@ -20,9 +20,15 @@ npm run docs:build    # build برای deploy
 
 ## مشاهدهٔ سایت
 
-سایت روی Cloudflare Pages منتشر شده:
-
 **https://react-application-architecture.ir**
+
+### Deploy با GitHub Pages
+
+این پروژه **VitePress** است، نه Jekyll. در تنظیمات GitHub:
+
+1. **Settings → Pages → Build and deployment → Source** را روی **GitHub Actions** بگذارید (نه Deploy from a branch)
+2. با push به `main`، workflow `Deploy to GitHub Pages` اجرا می‌شود
+3. خروجی build: `docs/.vitepress/dist`
 
 
 ## مشارکت
