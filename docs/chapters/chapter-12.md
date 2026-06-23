@@ -13,7 +13,7 @@
 
 در پایان این فصل، یک CI/CD pipeline کاملاً خودکار خواهیم داشت که بررسی‌هایمان را در هر push اجرا می‌کند و اپلیکیشن را هر بار که همهٔ بررسی‌ها ردیف باشند به Render deploy می‌کند.
 
-## پیش‌نیازهای فنی
+## پیش‌نیازهای فنی {#h1_289 .heading-1}
 
 قبل از شروع، باید پروژه را تنظیم کنیم. برای توسعهٔ پروژه، موارد زیر باید روی کامپیوترمان نصب باشد:
 
@@ -70,7 +70,7 @@ npm run dev
 
 باید سرور API را روی [http://localhost:9999](http://localhost:9999) ببینیم. برای اطلاعات بیشتر دربارهٔ جزئیات setup، فایل `README.md` را بررسی کنید.
 
-## CI/CD چیست؟
+## CI/CD چیست؟ {#h1_290 .heading-1}
 
 **Continuous integration/continuous deployment (CI/CD)** شیوهٔ تحویل تغییرات اپلیکیشن به کاربران به‌صورت خودکار و قابل اعتماد است. به‌جای اجرای دستی بررسی‌ها و کلیک روی deploy، pipeline این کار را هر بار برایمان انجام می‌دهد.
 
@@ -97,35 +97,35 @@ npm run dev
 
 حالا که فهمیدیم CI/CD چیست، بیایید ابزاری را ببینیم که برای ساخت pipeline استفاده خواهیم کرد.
 
-## استفاده از GitHub Actions
+## استفاده از GitHub Actions {#h1_291 .heading-1}
 
 برای خودکارسازی CI/CD pipeline، از **GitHub Actions** استفاده خواهیم کرد، پلتفرمی که مستقیماً در GitHub تعبیه شده. workflowهای خودکاری تعریف می‌کنیم که در واکنش به اتفاقاتی مثل push یا pull request در مخزن اجرا می‌شوند و GitHub اجرای آن‌ها را مدیریت می‌کند. نیازی به راه‌اندازی و نگهداری سرور CI خارجی نیست.
 
 قبل از نوشتن اولین workflow، بیایید با مفاهیم کلیدی آشنا شویم تا اصطلاحات GitHub Actions را بفهمیم.
 
-### Workflowها
+### Workflowها {#h2_292 .heading-2}
 
 یک **workflow** فرآیند خودکاری است که از یک یا چند job تشکیل شده. workflowها را به‌صورت فایل‌های YAML در پوشهٔ `.github/workflows` مخزن تعریف می‌کنیم. یک workflow هر زمان که یک event خاص رخ دهد اجرا می‌شود، مثلاً push یا pull request. همچنین می‌توانیم آن را به‌صورت دستی از رابط کاربری GitHub با استفاده از event `workflow_dispatch` آغاز کنیم. یک مخزن می‌تواند به تعداد دلخواه workflow داشته باشد.
 
-### Eventها
+### Eventها {#h2_293 .heading-2}
 
 یک **event** چیزی است که یک workflow را آغاز می‌کند. می‌تواند push کردن کد به مخزن، باز کردن pull request یا حتی یک زمان زمان‌بندی‌شده باشد. eventها همچنین می‌توانند از طریق درخواست HTTP به‌صورت خارجی آغاز شوند که برای تنظیمات پیشرفته‌تر مفید است.
 
-### Jobها
+### Jobها {#h2_294 .heading-2}
 
 یک **job** مجموعه‌ای از مراحل است که به‌عنوان بخشی از یک workflow اجرا می‌شوند. هر مرحله یا دستور shell است که ما می‌نویسیم یا یک action از پیش ساخته‌شده. به‌طور پیش‌فرض، همهٔ jobها در یک workflow به‌صورت موازی اجرا می‌شوند، هرچند می‌توانیم تنظیم کنیم یک job قبل از شروع منتظر اتمام job دیگری بماند.
 
-### Actionها
+### Actionها {#h2_296 .heading-2}
 
 یک **action** واحد قابل استفادهٔ مجددی از کار است که یک وظیفهٔ رایج را انجام می‌دهد. GitHub Actions Marketplace ([https://github.com/marketplace?type=actions](https://github.com/marketplace?type=actions)) actionهای از پیش ساخته‌شدهٔ زیادی دارد. آن‌ها را مثل packageهای npm در نظر بگیرید، اما برای pipelineهای CI. از چند مورد آن‌ها استفاده خواهیم کرد، مثل actionهایی برای checkout کردن کد، تنظیم Node.js و deploy کردن به پلتفرمی مثل Render.
 
-### Runnerها
+### Runnerها {#h2_297 .heading-2}
 
 یک **runner** سروری است که وقتی یک workflow آغاز می‌شود آن را اجرا می‌کند. GitHub runnerهای میزبانی‌شده روی Ubuntu، macOS و Windows ارائه می‌دهد. اگر به چیز سفارشی‌تری نیاز داشته باشیم، می‌توانیم runnerهای self-hosted خودمان را هم راه‌اندازی کنیم.
 
 حالا که با بلوک‌های سازنده آشنا شدیم، بیایید آن‌ها را کنار هم بگذاریم و CI/CD pipeline را بسازیم. با CI pipeline شروع کنیم.
 
-## تنظیم pipeline برای continuous integration
+## تنظیم pipeline برای continuous integration {#h1_298 .heading-1}
 
 CI pipeline ما چهار job خواهد داشت که به‌صورت موازی اجرا می‌شوند: **بررسی‌های کیفیت کد**، **تست‌های unit**، **تست‌های integration** و **تست‌های end-to-end**. اجرای موازی آن‌ها یعنی سریع‌تر نتیجه می‌گیریم چون منتظر اتمام یک job قبل از شروع بعدی نمی‌مانیم.
 
@@ -283,13 +283,13 @@ jobs:
 
 با CI حل شد، بیایید به بخش deployment بپردازیم.
 
-## تنظیم pipeline برای continuous deployment
+## تنظیم pipeline برای continuous deployment {#h1_299 .heading-1}
 
 گزینه‌های مختلف زیادی برای deploy کردن اپلیکیشن React Router وجود دارد، مثل پلتفرم‌های serverless (Vercel، Netlify و Cloudflare Pages)، پلتفرم‌های سرور بلندمدت (Fly.io، Render، Railway) یا راه‌حل‌های self-hosted روی VPS. برای اپلیکیشن ما از **Render** استفاده خواهیم کرد چون ساده است و tier رایگان بخشنده‌ای دارد.
 
 pipeline deployment ما یک job دارد که deployment را آغاز می‌کند، اما فقط بعد از ردیف شدن CI و فقط برای push به شاخهٔ `main`. قطعاً نمی‌خواهیم هر بار که کسی به شاخهٔ feature push می‌کند deployment آغاز شود.
 
-### ساختن workflow deployment
+### ساختن workflow deployment {#h2_300 .heading-2}
 
 بیایید فایل جدیدی در `.github/workflows/cd.yml` بسازیم:
 
@@ -329,7 +329,7 @@ jobs:
 
 قبل از اینکه این workflow بتواند چیزی deploy کند، باید یک سرویس روی Render بسازیم و credentialهای لازم را دریافت کنیم.
 
-### راه‌اندازی Render
+### راه‌اندازی Render {#h2_301 .heading-2}
 
 برای شروع، به [https://dashboard.render.com](https://dashboard.render.com) بروید و وارد داشبورد Render شوید. روی **New** کلیک کنید و **Web Service** را از منوی کشویی انتخاب کنید.
 
@@ -363,7 +363,7 @@ jobs:
 
 با غیرفعال شدن این مورد، Render منتظر می‌ماند تا workflow CD ما به آن بگوید deploy کند.
 
-### دریافت service ID و API key
+### دریافت service ID و API key {#h2_302 .heading-2}
 
 حالا به دو چیز از Render نیاز داریم: service ID و یک API key. workflow ما از این‌ها برای احراز هویت با API Render و آغاز deployment استفاده خواهد کرد.
 
@@ -381,7 +381,7 @@ service ID مستقیماً در صفحهٔ تنظیمات سرویس موجود
 
 حالا باید به workflow GitHub دسترسی به این credentialها را بدهیم.
 
-### اضافه کردن secretها به مخزن
+### اضافه کردن secretها به مخزن {#h2_303 .heading-2}
 
 این credentialها را از طریق repository secretها به workflow GitHub فراهم می‌کنیم؛ مقادیر رمزنگاری‌شده‌ای که workflowها می‌توانند در زمان اجرا بخوانند اما هرگز در کد یا log ظاهر نمی‌شوند.
 
@@ -393,7 +393,7 @@ service ID مستقیماً در صفحهٔ تنظیمات سرویس موجود
 
 این نام‌ها دقیقاً با آنچه در `cd.yml` با `$&#123;&#123; secrets.RENDER_SERVICE_ID &#125;&#125;` و `$&#123;&#123; secrets.RENDER_API_KEY &#125;&#125;` مرجع دادیم مطابقت دارند. وقتی workflow اجرا می‌شود، GitHub مقادیر را به‌صورت خودکار تزریق می‌کند.
 
-### تأیید deployment
+### تأیید deployment {#h2_304 .heading-2}
 
 بیایید یک commit جدید به `main` push کنیم و کل فرآیند را در عمل ببینیم. اول pipeline CI اجرا می‌شود و وقتی ردیف شد، workflow CD به‌صورت خودکار آغاز می‌شود:
 
@@ -415,7 +415,7 @@ service ID مستقیماً در صفحهٔ تنظیمات سرویس موجود
 
 از این به بعد، هر push به `main` که CI را ردیف کند به‌طور خودکار به یک deployment تازه منجر می‌شود. دیگر خبری از اجرای دستی اسکریپت‌ها و آغاز دستی release نیست — pipeline همهٔ این کارها را انجام می‌دهد.
 
-## خلاصه
+## خلاصه {#h1_305 .heading-1}
 
 در این فصل، یک CI/CD pipeline کامل با استفاده از GitHub Actions و Render راه‌اندازی کردیم.
 
