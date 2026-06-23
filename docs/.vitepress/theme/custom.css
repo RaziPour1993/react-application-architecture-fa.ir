@@ -1,0 +1,71 @@
+:root {
+  --vp-font-family-base: 'Vazirmatn', system-ui, sans-serif;
+  --vp-font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  font-family: var(--vp-font-family-base);
+}
+
+.vp-doc div[class*='language-'],
+.vp-doc pre,
+.vp-doc code {
+  direction: ltr;
+  text-align: left;
+}
+
+.VPSidebar,
+.VPNavBarMenu,
+.VPDocAsideOutline {
+  direction: rtl;
+}
+
+.VPDocAsideOutline .outline-link {
+  padding-right: 12px;
+  padding-left: 0;
+}
+
+.translation-notice {
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  background: var(--vp-c-brand-soft);
+  border: 1px solid var(--vp-c-brand-1);
+  color: var(--vp-c-text-1);
+}
+
+.translation-notice p {
+  margin: 0;
+}
+
+.vp-doc ul,
+.vp-doc ol {
+  padding-right: 1.25rem;
+  padding-left: 0;
+}
+
+.vp-doc ul ul,
+.vp-doc ol ol,
+.vp-doc ul ol,
+.vp-doc ol ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-right: 1.5rem;
+}
+
+.vp-doc li + li {
+  margin-top: 0.35rem;
+}
+
+.vp-doc li > p {
+  margin: 0;
+}
+
+.vp-doc h3 + p,
+.vp-doc h4 + p {
+  margin-top: 0.75rem;
+}

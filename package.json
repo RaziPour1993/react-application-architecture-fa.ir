@@ -1,0 +1,17 @@
+{
+  "name": "react-application-architecture-fa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ترجمه شخصی کتاب React Application Architecture for Production (2nd Edition)",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "extract": "./scripts/extract-epub.sh",
+    "toc": "node scripts/generate-toc.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
