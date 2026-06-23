@@ -1,4 +1,4 @@
-# فصل ۴: روتینگ و استراتژی‌های رندرینگ
+# فصل ۴: روتینگ و استراتژی‌های رندرینگ {#h1_145 .chapterTitle}
 
 وقتی کاربر به URL اپلیکیشن ما مراجعه می‌کند، اپلیکیشن باید تصمیم بگیرد چه UI‌ای به کاربر نمایش داده شود. اینجاست که روتینگ وارد میدان می‌شود. فراتر از فقط نمایش صفحهٔ درست، باید در نظر بگیریم چگونه و چه زمانی آن صفحه render می‌شود: روی سرور، در مرورگر یا ترکیبی از هر دو. این تصمیمات می‌توانند تأثیر قابل توجهی روی عملکرد، تجربهٔ کاربر و SEO داشته باشند.
 
@@ -20,7 +20,7 @@
 
 کد این کتاب در repo کتاب موجود است. برای دسترسی به لینک repository، مراحل بخش «دانلود فایل‌های کد نمونه» در پیش‌گفتار را دنبال کنید. آن را clone کنید و وارد root repository شوید:
 
-```
+```bash
 git clone https://github.com/PacktPublishing/React-Application-Architecture-for-Production-Second-Edition.git
 ```
 
@@ -28,19 +28,19 @@ repository شامل پوشه‌های فصل با کد هر فصل است، هم
 
 ما روی فصل ۴ کار می‌کنیم، پس وارد پوشهٔ `chapter-04` شوید:
 
-```
+```bash
 cd React-Application-Architecture-for-Production-Second-Edition/chapter-04
 ```
 
 سپس dependencyها را نصب کنید:
 
-```
+```bash
 npm install
 ```
 
 همچنین باید environment variableها را فراهم کنیم:
 
-```
+```bash
 cp .env.example .env
 ```
 
@@ -215,7 +215,7 @@ function MyComponent() {
 
 ### Server-side rendering {#h2_154}
 
-**Server-side rendering** (**SSR**) به این معناست که محتوای صفحه برای هر درخواست روی سرور تولید می‌شود. این به ما اجازه می‌دهد دادهٔ تازه از database یا API دریافت کنیم و محتوای شخصی‌سازی‌شده render کنیم و در عین حال barگذاری سریع اولیهٔ صفحه و SEO عالی فراهم کنیم.
+**Server-side rendering** (**SSR**) به این معناست که محتوای صفحه برای هر درخواست روی سرور تولید می‌شود. این به ما اجازه می‌دهد دادهٔ تازه از database یا API دریافت کنیم و محتوای شخصی‌سازی‌شده render کنیم و در عین حال بارگذاری سریع اولیهٔ صفحه و SEO عالی فراهم کنیم.
 
 بیایید نحوهٔ کار SSR را بصری ببینیم:
 
@@ -328,7 +328,7 @@ export default [
 
 SSR قدرتمند است، اما گاهی به SEO یا immediate content visibility نیاز نداریم. برای صفحات authenticated پشت login، client-side rendering کاملاً کافی است.
 
-### Client-side rendering {#h2_156}
+## Client-side rendering {#h2_156}
 
 **Client-side rendering** (**CSR**) HTML حداقلی از سرور ارسال و با JavaScript بعد از بارگذاری صفحه داده دریافت می‌کند. این برای صفحات authenticated ایده‌آل است که SEO مهم نیست و می‌خواهیم بار سرور را کاهش دهیم.
 
@@ -419,7 +419,7 @@ export default [
 
 گاهی به بهترین هر دو دنیا نیاز داریم: محتوای immediate از سرور به‌علاوهٔ دریافت اضافی داده روی client. اینجاست که **hybrid rendering** وارد میدان می‌شود.
 
-### Hybrid rendering {#h2_158}
+## Hybrid rendering {#h2_158}
 
 **Hybrid rendering** ترکیبی از SSR و CSR است. به ما اجازه می‌دهد بهترین هر دو دنیا را داشته باشیم: محتوای immediate از سرور به‌علاوهٔ دریافت اضافی داده روی client.
 
@@ -579,7 +579,7 @@ export default [
 
 اما اگر صفحاتی داشته باشیم که static هستند و محتوای صفحه نباید در هر درخواست تولید شود چه؟ اینجاست که **static pre-rendering** وارد میدان می‌شود.
 
-### Static pre-rendering {#h2_160}
+## Static pre-rendering {#h2_160}
 
 صفحات **static pre-rendered** صفحاتی هستند که در زمان build تولید و به‌عنوان فایل HTML سرو می‌شوند. سریع barگذاری می‌شوند، بدون JavaScript کار می‌کنند و برای محتوایی که به‌طور مکرر تغییر نمی‌کند عالی هستند.
 
