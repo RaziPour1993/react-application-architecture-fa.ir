@@ -1,7 +1,21 @@
 import { defineConfig } from 'vitepress'
 import { sidebar } from './toc'
 
+function resolveBasePath(): string {
+  if (process.env.VITEPRESS_BASE) {
+    return process.env.VITEPRESS_BASE
+  }
+
+  const repository = process.env.GITHUB_REPOSITORY
+  if (repository && !repository.endsWith('.github.io')) {
+    return `/${repository.split('/')[1]}/`
+  }
+
+  return '/'
+}
+
 export default defineConfig({
+  base: resolveBasePath(),
   lang: 'fa-IR',
   title: 'معماری React برای Production',
   description: 'ترجمه شخصی — React Application Architecture for Production, 2nd Edition',

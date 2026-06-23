@@ -26,7 +26,11 @@ jobs:
           cache: npm
 
       - run: npm ci
+      # GitHub Pages project sites are served from /repo-name/
+      # Set VITEPRESS_BASE=/ when using a custom domain at the root.
       - run: npm run docs:build
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
