@@ -301,7 +301,7 @@ pipeline deployment ما یک job دارد که deployment را آغاز می‌
 # .github/workflows/cd.yml
 
 name: Continuous Deployment
-run-name: ${{ github.event.workflow_run.head_commit.message &#125;&#125;
+run-name: $&#123;&#123; github.event.workflow_run.head_commit.message &#125;&#125;
 on:
   workflow_run:
     workflows: [Continuous Integration]
@@ -312,14 +312,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
     env:
-      RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID &#125;&#125;
-      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY &#125;&#125;
+      RENDER_SERVICE_ID: $&#123;&#123; secrets.RENDER_SERVICE_ID &#125;&#125;
+      RENDER_API_KEY: $&#123;&#123; secrets.RENDER_API_KEY &#125;&#125;
     steps:
       - if: env.RENDER_SERVICE_ID != '' && env.RENDER_API_KEY != ''
         uses: JorgeLNJunior/render-deploy@v1.5.0
         with:
-          service_id: ${{ secrets.RENDER_SERVICE_ID &#125;&#125;
-          api_key: ${{ secrets.RENDER_API_KEY &#125;&#125;
+          service_id: $&#123;&#123; secrets.RENDER_SERVICE_ID &#125;&#125;
+          api_key: $&#123;&#123; secrets.RENDER_API_KEY &#125;&#125;
           wait_deploy: true
 ```
 
@@ -395,7 +395,7 @@ service ID مستقیماً در صفحهٔ تنظیمات سرویس موجود
 
 **شکل ۱۲.۱۰ — اضافه کردن service ID و API key به repository secretها**
 
-این نام‌ها دقیقاً با آنچه در `cd.yml` با `${{ secrets.RENDER_SERVICE_ID &#125;&#125;` و `${{ secrets.RENDER_API_KEY &#125;&#125;` مرجع دادیم مطابقت دارند. وقتی workflow اجرا می‌شود، GitHub مقادیر را به‌صورت خودکار تزریق می‌کند.
+این نام‌ها دقیقاً با آنچه در `cd.yml` با `$&#123;&#123; secrets.RENDER_SERVICE_ID &#125;&#125;` و `$&#123;&#123; secrets.RENDER_API_KEY &#125;&#125;` مرجع دادیم مطابقت دارند. وقتی workflow اجرا می‌شود، GitHub مقادیر را به‌صورت خودکار تزریق می‌کند.
 
 ### تأیید deployment {#h2_304 .heading-2}
 
