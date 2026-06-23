@@ -10,20 +10,12 @@ hero:
       text: شروع مطالعه
       link: /preface
     - theme: alt
-      text: فصل ۱
-      link: /chapters/chapter-01
+      text: پیش‌گفتار
+      link: /preface
 
 features:
   - title: ۱۳ فصل
     details: از معماری React تا استقرار Production و تکامل اپلیکیشن
-  - title: متن انگلیسی مرجع
-    details: فایل‌های source/en/ برای ترجمه — متن فارسی در docs/
   - title: مطالعه آنلاین
-    details: react-application-architecture.ir — VitePress با پشتیبانی RTL و فونت فارسی
+    details: react-application-architecture.ir —  با پشتیبانی RTL و فونت فارسی
 ---
-
-<div class="translation-notice">
-
-**یادآوری:** این ترجمه شخصی برای مطالعه خصوصی است. متن انگلیسی کتاب در پوشه `source/en/` قرار دارد.
-
-</div>
