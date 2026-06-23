@@ -9,9 +9,6 @@ hero:
     - theme: brand
       text: شروع مطالعه
       link: /preface
-    - theme: alt
-      text: پیش‌گفتار
-      link: /preface
 
 features:
   - title: ۱۳ فصل

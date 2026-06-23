@@ -22,7 +22,7 @@
 
 کد این کتاب در مخزن کتاب موجود است. برای دسترسی به لینک مخزن، مراحل بخش *«Download the example code files»* در *Preface* را دنبال کنید. آن را clone کنید و وارد ریشهٔ مخزن شوید:
 
-```
+```bash
 git clone https://github.com/PacktPublishing/React-Application-Architecture-for-Production-Second-Edition.git
 ```
 
@@ -30,19 +30,19 @@ git clone https://github.com/PacktPublishing/React-Application-Architecture-for-
 
 ما در فصل ۱۱ هستیم، پس باید وارد پوشهٔ `chapter-11` شویم:
 
-```
+```bash
 cd React-Application-Architecture-for-Production-Second-Edition/chapter-11
 ```
 
 سپس باید dependencyها را نصب کنیم:
 
-```
+```bash
 npm install
 ```
 
 همچنین باید متغیرهای محیطی را فراهم کنیم:
 
-```
+```bash
 cp .env.example .env
 ```
 
@@ -52,19 +52,19 @@ cp .env.example .env
 
 بیایید یک پنجرهٔ ترمینال جدید باز کنیم و وارد پوشهٔ api شویم:
 
-```
+```bash
 cd React-Application-Architecture-for-Production-Second-Edition/api
 ```
 
 حالا باید اسکریپت setup را برای فصل ۱۱ اجرا کنیم تا همه‌چیز را برایمان configure کند:
 
-```
+```bash
 npm run setup 11
 ```
 
 سپس باید سرور API را اجرا کنیم:
 
-```
+```bash
 npm run dev
 ```
 

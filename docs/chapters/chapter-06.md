@@ -1,4 +1,4 @@
-# فصل ۶: مدیریت state اپلیکیشن {#h1_189 .chapterTitle}
+# فصل ۶: مدیریت state اپلیکیشن
 
 مدیریت state جنبهٔ مهمی از هر اپلیکیشن تعاملی وب است. تعیین می‌کند داده چگونه در اپلیکیشن جریان می‌یابد، UI چگونه به تعاملات کاربر پاسخ می‌دهد، و چگونه اپلیکیشن را با API هماهنگ نگه داریم. بدون مدیریت state مناسب، اپلیکیشن‌هایمان نگهداری‌شان سخت و مستعد باگ خواهند بود.
 
@@ -23,7 +23,7 @@ State به دادهٔ اپلیکیشن اشاره دارد که در طول زم
 
 کد این کتاب در مخزن کتاب موجود است. برای دسترسی به لینک مخزن، مراحل بخش «*دانلود فایل‌های کد نمونه*» در *پیشگفتار* را دنبال کنید. آن را کلون کنید و وارد ریشهٔ مخزن شوید:
 
-```
+```bash
 git clone https://github.com/PacktPublishing/React-Application-Architecture-for-Production-Second-Edition.git
 ```
 
@@ -31,19 +31,19 @@ git clone https://github.com/PacktPublishing/React-Application-Architecture-for-
 
 ما روی فصل ۶ کار می‌کنیم، پس وارد پوشهٔ `chapter-06` شوید:
 
-```
+```bash
 cd React-Application-Architecture-for-Production-Second-Edition/chapter-06
 ```
 
 سپس dependencyها را نصب کنید:
 
-```
+```bash
 npm install
 ```
 
 همچنین باید متغیرهای محیطی را فراهم کنیم:
 
-```
+```bash
 cp .env.example .env
 ```
 
@@ -53,19 +53,19 @@ cp .env.example .env
 
 یک پنجرهٔ ترمینال جدید باز کنید و وارد پوشهٔ `api` شوید:
 
-```
+```bash
 cd React-Application-Architecture-for-Production-Second-Edition/api
 ```
 
 اسکریپت setup فصل ۶ را برای پیکربندی همه‌چیز اجرا کنید:
 
-```
+```bash
 npm run setup 06
 ```
 
 سپس سرور API را اجرا کنید:
 
-```
+```bash
 npm run dev
 ```
 
