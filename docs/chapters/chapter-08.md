@@ -43,7 +43,7 @@ cd React-Application-Architecture-for-Production-Second-Edition/chapter-08
 
 ```
 npm install
-``
+```
 
 همچنین باید متغیرهای محیطی را فراهم کنیم:
 
