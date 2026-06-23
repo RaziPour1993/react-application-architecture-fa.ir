@@ -36,41 +36,56 @@ npm run extract
 ./scripts/extract-epub.sh /path/to/book.epub
 ```
 
-## GitHub Pages و دامنه
+## Cloudflare Pages و دامنه
 
 دامنه: **react-application-architecture.ir**
 
-### ۱. فعال‌سازی GitHub Pages
+GitHub Pages روی ریپوی Private بدون GitHub Pro کار نمی‌کند.  
+**Cloudflare Pages** رایگان است، با ریپوی Private سازگار است، و SSL هم رایگان می‌دهد.
 
-1. **Settings → Pages → Build and deployment → Source: GitHub Actions**
-2. push به `main` → workflow خودکار deploy می‌کند
-3. **Settings → Pages → Custom domain** → `react-application-architecture.ir`
-4. **Enforce HTTPS** را فعال کنید
+### ۱. اضافه کردن دامنه به Cloudflare
 
-> **GitHub Pages روی Private repo** برای اکانت شخصی نیاز به **GitHub Pro** دارد.
+1. وارد [dash.cloudflare.com](https://dash.cloudflare.com) شوید
+2. **Add a site** → `react-application-architecture.ir`
+3. پلن **Free** را انتخاب کنید
+4. دو nameserver که Cloudflare می‌دهد را کپی کنید
+5. در پنل ثبت‌کنندهٔ دامنه `.ir` (مثلاً ایرنیک/نیک‌ایران) nameserverها را عوض کنید
+6. صبر کنید تا وضعیت دامنه در Cloudflare **Active** شود (معمولاً ۱ تا ۲۴ ساعت)
 
-### ۲. تنظیم DNS (پنل دامنه `.ir`)
+### ۲. ساخت پروژهٔ Pages
 
-برای **دامنه ریشه** (`react-application-architecture.ir`):
+1. **Workers & Pages → Create → Pages → Connect to Git**
+2. GitHub را authorize کنید و ریپوی `RaziPour1993/react-application-architecture` را انتخاب کنید
+3. تنظیمات build:
 
-| نوع | نام | مقدار |
-|-----|-----|--------|
-| `A` | `@` | `185.199.108.153` |
-| `A` | `@` | `185.199.109.153` |
-| `A` | `@` | `185.199.110.153` |
-| `A` | `@` | `185.199.111.153` |
+| فیلد | مقدار |
+|------|--------|
+| Production branch | `main` |
+| Framework preset | `None` |
+| Build command | `npm run docs:build` |
+| Build output directory | `docs/.vitepress/dist` |
 
-برای **www** (اختیاری):
+4. **Environment variables** (اختیاری — فایل `.node-version` هم کافی است):
 
-| نوع | نام | مقدار |
-|-----|-----|--------|
-| `CNAME` | `www` | `RaziPour1993.github.io` |
+| نام | مقدار |
+|-----|--------|
+| `NODE_VERSION` | `22` |
 
-> اگر نام کاربری GitHub شما متفاوت است، مقدار CNAME را با `USERNAME.github.io` جایگزین کنید.
+5. **Save and Deploy** — اولین build چند دقیقه طول می‌کشد
 
-پس از تنظیم DNS، ۱۰ تا ۶۰ دقیقه صبر کنید تا propagate شود.
+### ۳. اتصال دامنهٔ سفارشی
 
-فایل [`docs/public/CNAME`](docs/public/CNAME) از قبل تنظیم شده است.
+1. در پروژهٔ Pages → **Custom domains → Set up a custom domain**
+2. `react-application-architecture.ir` را اضافه کنید
+3. (اختیاری) `www.react-application-architecture.ir` را هم اضافه کنید
+4. Cloudflare DNS را خودکار تنظیم می‌کند — اگر دامنه روی Cloudflare باشد، کاری لازم نیست
+5. **SSL/TLS → Overview** → حالت **Full** یا **Full (strict)** باشد
+
+### ۴. بعد از deploy
+
+هر `git push` به `main` → build و deploy خودکار.
+
+سایت: **https://react-application-architecture.ir**
 
 ## GitHub (Private)
 
