@@ -511,7 +511,7 @@ export default function IdeaDetailPage({
 
 کامپوننت `Suspense` بخش reviews را wrap می‌کند. در حالی که promise reviews هنوز در انتظار است، React `ReviewsSkeleton` fallback را نشان می‌دهد. وقتی داده می‌رسد، skeleton به‌طور یکپارچه با reviews واقعی جایگزین می‌شود.
 
-اما کامپوننت `IdeaReviews` چگونه به داده از promise دسترسی پیدا می‌کند؟ React هOOK `use` را دقیقاً برای همین منظور فراهم می‌کند:
+اما کامپوننت `IdeaReviews` چگونه به داده از promise دسترسی پیدا می‌کند؟ React هوک `use` را دقیقاً برای همین منظور فراهم می‌کند:
 
 ```typescript
 function IdeaReviews({
@@ -678,7 +678,7 @@ function Ideas() {
 
 شکل ۸.۵ — Infinite pagination
 
-React Query هOOK `useInfiniteQuery` را دقیقاً برای این الگو فراهم می‌کند. این hook چندین صفحه از داده را مدیریت می‌کند و می‌داند چه زمانی صفحات بیشتری در دسترس هستند. بیایید API ideas خود را برای پشتیبانی از بارگذاری infinit به‌روزرسانی کنیم.
+React Query هوک `useInfiniteQuery` را دقیقاً برای این الگو فراهم می‌کند. این hook چندین صفحه از داده را مدیریت می‌کند و می‌داند چه زمانی صفحات بیشتری در دسترس هستند. بیایید API ideas خود را برای پشتیبانی از بارگذاری infinit به‌روزرسانی کنیم.
 
 ```typescript
 // src/features/ideas/api/get-ideas.ts
