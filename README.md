@@ -36,13 +36,46 @@ npm run extract
 ./scripts/extract-epub.sh /path/to/book.epub
 ```
 
+## GitHub Pages و دامنه
+
+دامنه: **react-application-architecture.ir**
+
+### ۱. فعال‌سازی GitHub Pages
+
+1. **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. push به `main` → workflow خودکار deploy می‌کند
+3. **Settings → Pages → Custom domain** → `react-application-architecture.ir`
+4. **Enforce HTTPS** را فعال کنید
+
+> **GitHub Pages روی Private repo** برای اکانت شخصی نیاز به **GitHub Pro** دارد.
+
+### ۲. تنظیم DNS (پنل دامنه `.ir`)
+
+برای **دامنه ریشه** (`react-application-architecture.ir`):
+
+| نوع | نام | مقدار |
+|-----|-----|--------|
+| `A` | `@` | `185.199.108.153` |
+| `A` | `@` | `185.199.109.153` |
+| `A` | `@` | `185.199.110.153` |
+| `A` | `@` | `185.199.111.153` |
+
+برای **www** (اختیاری):
+
+| نوع | نام | مقدار |
+|-----|-----|--------|
+| `CNAME` | `www` | `RaziPour1993.github.io` |
+
+> اگر نام کاربری GitHub شما متفاوت است، مقدار CNAME را با `USERNAME.github.io` جایگزین کنید.
+
+پس از تنظیم DNS، ۱۰ تا ۶۰ دقیقه صبر کنید تا propagate شود.
+
+فایل [`docs/public/CNAME`](docs/public/CNAME) از قبل تنظیم شده است.
+
 ## GitHub (Private)
 
 ```bash
-git init
-git add .
-git commit -m "Initial setup: VitePress translation project"
-gh repo create react-application-architecture --private --source=. --push
+git push origin main
 ```
 
 ## منبع کتاب

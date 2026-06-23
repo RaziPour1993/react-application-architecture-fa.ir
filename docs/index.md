@@ -18,8 +18,8 @@ features:
     details: از معماری React تا استقرار Production و تکامل اپلیکیشن
   - title: متن انگلیسی مرجع
     details: فایل‌های source/en/ برای ترجمه — متن فارسی در docs/
-  - title: مطالعه محلی
-    details: سایت VitePress با پشتیبانی RTL و فونت فارسی
+  - title: مطالعه آنلاین
+    details: react-application-architecture.ir — VitePress با پشتیبانی RTL و فونت فارسی
 ---
 
 <div class="translation-notice">
