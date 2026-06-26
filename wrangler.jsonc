@@ -1,0 +1,20 @@
+{
+  "name": "react-application-architecture-ir",
+  "compatibility_date": "2026-06-05",
+  "routes": [
+    {
+      "pattern": "www.react-application-architecture.ir",
+      "custom_domain": true
+    },
+    {
+      "pattern": "react-application-architecture.ir",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "."
+  },
+  "observability": {
+    "enabled": false
+  }
+}
