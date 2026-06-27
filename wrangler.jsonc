@@ -12,7 +12,7 @@
     }
   ],
   "assets": {
-    "directory": "."
+    "directory": "docs/.vitepress/dist"
   },
   "observability": {
     "enabled": false,
