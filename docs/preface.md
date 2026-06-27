@@ -107,3 +107,15 @@ npm run dev
 ::: tip
 نکات و ترفندها به این شکل نمایش داده می‌شوند.
 :::
+
+### درباره این ترجمه
+
+این ترجمهٔ فارسی کتاب **React Application Architecture for Production** (ویرایش دوم، Packt Publishing) است.
+
+می‌توانید این ترجمه را آنلاین در [react-application-architecture.ir](http://react-application-architecture.ir/) بخوانید. متن و سورس در [گیت‌هاب](https://github.com/RaziPour1993/react-application-architecture.ir) نیز منتشر شده است.
+
+<div class="translation-notice">
+
+اگر وسط مطالعه به غلط املایی، اصطلاح نامفهوم، جمله‌ای که روان نیست، یا هر مشکل دیگری برخوردید، حتماً به من بگویید تا اصلاح کنم — از طریق [لینکدین](https://www.linkedin.com/in/razipour1993)، [تلگرام](https://t.me/razipour1993) یا [گیت‌هاب](https://github.com/RaziPour1993/react-application-architecture.ir).
+
+</div>

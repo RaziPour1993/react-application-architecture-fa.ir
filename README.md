@@ -10,7 +10,7 @@
 
 نسخهٔ اصلی انگلیسی کتاب در [آمازون](https://www.amazon.com/React-Application-Architecture-Production-hands/dp/1836202970) موجود است.
 
-از طریق لینک زیر می‌توانید کتاب را آنلاین بخوانید: [react-application-architecture.ir](https://razipour1993.github.io/react-application-architecture.ir/)
+از طریق لینک زیر می‌توانید کتاب را آنلاین بخوانید: [react-application-architecture.ir](http://react-application-architecture.ir/)
 
 متن و سورس این ترجمه در [گیت‌هاب](https://github.com/RaziPour1993/react-application-architecture.ir) نیز منتشر شده است.
 
