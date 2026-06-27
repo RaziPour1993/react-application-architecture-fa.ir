@@ -58,10 +58,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run docs:build
-        env:
-          VITEPRESS_BASE: /
-
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy

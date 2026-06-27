@@ -8,10 +8,13 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "build:cloudflare": "VITEPRESS_BASE=/ vitepress build docs",
+    "deploy:cloudflare": "npm run build:cloudflare && wrangler deploy",
     "extract": "./scripts/extract-epub.sh",
     "toc": "node scripts/generate-toc.mjs"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.3",
+    "wrangler": "^4.105.0"
   }
 }

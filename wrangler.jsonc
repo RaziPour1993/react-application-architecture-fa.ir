@@ -1,6 +1,9 @@
 {
   "name": "react-application-architecture-ir",
   "compatibility_date": "2026-06-05",
+  "build": {
+    "command": "npm run build:cloudflare"
+  },
   "routes": [
     {
       "pattern": "www.react-application-architecture.ir",
